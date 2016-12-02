@@ -10,7 +10,7 @@ def get_progress_bar(percentage):
     return dashes, spaces
 
 
-if __name__ == '__main__':
+def show():
     for i, cpu_load in enumerate(psutil.cpu_percent(interval=1, percpu=True)):
         dashes, spaces = get_progress_bar(cpu_load)
         print 'CPU{0} [{1}{2}] {3}%'.format(i, dashes, spaces, cpu_load)
@@ -49,3 +49,7 @@ if __name__ == '__main__':
 
     uptime = datetime.datetime.now() - datetime.datetime.fromtimestamp(psutil.boot_time())
     print 'Uptime: {0}'.format(str(uptime).split('.')[0])
+
+
+if __name__ == '__main__':
+    show()
